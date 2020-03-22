@@ -1,1 +1,1 @@
-web: gunicorn LyricGenerator/bard:server
+web: gunicorn --chdir LyricGenerator bard:server
