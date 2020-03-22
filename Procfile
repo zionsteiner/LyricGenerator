@@ -1,1 +1,1 @@
-web: gunicorn bard:server
+web: gunicorn LyricGenerator/bard:server
