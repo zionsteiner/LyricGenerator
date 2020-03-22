@@ -1,5 +1,5 @@
-from artist_lyrics import download_artist_lyrics
-from clean_lyrics import clean_artist_lyrics
+from LyricGenerator.artist_lyrics import download_artist_lyrics
+from LyricGenerator.clean_lyrics import clean_artist_lyrics
 
 artists = ['katy perry', 'warren zevon', 'taylor swift', 'u2', 'the killers', 'gorillaz', 'smash mouth', 'selena gomez', 'justin bieber']
 for artist in artists:

@@ -3,18 +3,23 @@ import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output, State
 import keras
+
 import tensorflow as tf
+
 import pickle
 import numpy as np
 import os
 
 # Generate lists of options {genre: [artists]}
 genres = [genre_subdir for genre_subdir in os.listdir('genres') if os.path.isdir(os.path.join('genres', genre_subdir))]
-genre_artist_options = {genre: sorted([artist for artist in os.listdir(os.path.join('genres', genre)) if os.path.isdir(os.path.join('genres', genre, artist))]) for genre in genres}
+genre_artist_options = {genre: sorted([artist for artist in os.listdir(os.path.join('genres', genre)) if os.path.isdir(os.path.join(
+    'genres', genre, artist))]) for genre in genres}
 
+# Stylesheet from chriddyp
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+server = app.server
 
 app.layout = html.Div(children=[
     html.H1(children='Song Lyric Generator', style={'textAlign': 'center'}),
@@ -135,4 +140,4 @@ def sample(preds, temperature=1.0):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=False, port=80, threaded=False)
+    app.run_server(debug=False, port=8000, threaded=False)
